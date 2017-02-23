@@ -1,35 +1,51 @@
 \documentclass{beamer}
 \usepackage[sectionpage=none,subsectionpage=none,numbering=none,progressbar=frametitle,block=fill]{tex_supps/theme/beamerthememetropolis}
 % \usetheme[sectionpage=none,subsectionpage=none,numbering=fraction,progressbar=frametitle,block=fill]{metropolis}           % Use metropolis theme
-\usepackage[orientation=portrait, size=a0, scale=1.4]{tex_supps/beamerposter/beamerposter}
+\usepackage[orientation=portrait, size=a0, scale=1.7]{tex_supps/beamerposter/beamerposter}
+\usepackage{wrapfig}
+\usepackage{siunitx}
 
 
 \definecolor{mpg-green}{RGB}{0,115,103}
+\definecolor{mpg-green-fg}{RGB}{124,166,166}
+\definecolor{mpg-green-mid}{RGB}{201,219,216}
 \definecolor{mpg-green-bg}{RGB}{230,242,242}
 \setbeamercolor{title}{fg=mpg-green}
 \setbeamercolor{title separator}{fg=mpg-green}
 \setbeamercolor{frametitle}{bg=mpg-green}
-\setbeamercolor{block title alerted}{bg=mpg-green}
-\setbeamercolor{background canvas}{bg=mpg-green-bg}
+
+
+%		Possibility 1
+\setbeamercolor{block title alerted}{bg = mpg-green}
+\setbeamercolor{block title}{fg = white, bg = mpg-green}
+\setbeamercolor{background canvas}{bg = mpg-green-bg}
+\setbeamercolor{block body}{bg = mpg-green-mid}
+\setbeamercolor{item}{fg = mpg-green}
+
+%		Possibility 2
+% \setbeamercolor{block title alerted}{bg = mpg-green-fg}
+% \setbeamercolor{block title}{fg = white, bg = mpg-green-fg}
+% \setbeamercolor{background canvas}{bg = mpg-green-bg}
+% \setbeamercolor{block body}{bg = mpg-green-mid}
+% \setbeamercolor{item}{fg = mpg-green}
+
+
 \newlength{\sepwid}
 \newlength{\onecolwid}
 \newlength{\twocolwid}
 \newlength{\threecolwid}
-% \setlength{\paperwidth}{48in} % A0 width: 46.8in
-% \setlength{\paperheight}{36in} % A0 height: 33.1in
 \setlength{\sepwid}{0.04\textwidth} % Separation width (white space) between columns
 \setlength{\onecolwid}{0.44\textwidth} % Width of one column
 \setlength{\twocolwid}{0.884\textwidth} % Width of two columns
-% \setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\tabcolsep}{0pt}
 
-% \title{Wedge wetting by an electrolyte solution}
-% \date{\today}
-% \author{Maximilian Mussotter and Markus Bier}
-% \institute{Max Planck Institute for Intelligent Systems\\University of Stuttgart}
-% \institute{Max Planck Institute for Intelligent Systems\\
-	% University of Stuttgart\\[\medskipamount]
-	% \includegraphics[width=0.2\textwidth,keepaspectratio]{images/minerva.pdf}\includegraphics[width=0.2\textwidth,keepaspectratio]{{images/Universität_Stuttgart_Signet}.pdf}
-      % }
+\setbeamerfont{bibliography item}{size=\tiny, series=\bfseries}
+\setbeamerfont{bibliography entry author}{size=\tiny, series=\bfseries}
+\setbeamerfont{bibliography entry title}{size=\tiny, series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\tiny, series=\bfseries}
+\setbeamerfont{bibliography entry note}{size=\tiny, series=\bfseries}
+
+\newcommand{\kasten}[2][test]{\begin{block}{\rule[-0.6ex]{0pt}{2.5ex}#1}\vspace{0.5cm}#2\end{block}}
 
 \begin{document}
 	\begin{frame}[t]{}
@@ -51,7 +67,7 @@
 		\end{minipage}
 		\color{mpg-green}
 		\hrule height 4pt width \paperwidth 
-		\vspace{1.5cm}
+		\vspace{1.0cm}
 		\color{black}
 		%----------------------END OF TITLE
 		%---------------------
@@ -69,16 +85,52 @@
 			\end{column}
 			\begin{column}{\sepwid}\end{column}
 			\begin{column}{\onecolwid}
+				\kasten[Interactions]{
+                                         \begin{itemize}
+                                                 \item $\beta U^*$:
+                                                         \begin{itemize}
+                                                                 \normalsize
+                                                                 \item No distinction between particle types and
+                                                                 \item nearest neighbour interaction, $\beta U^*_{\alpha,\alpha'}(l,j,n,m) = \frac{1}{3T^*} \cdot "\delta_{\mathrm{nearest\ neighbour}}"$
+                                                         \end{itemize}
+                                                         \vspace{1cm}
+                                                 \item $\beta V^*$:
+                                                         \begin{itemize}
+                                                                 \normalsize
+                                                                 \item No distinction between particle types,
+                                                                 \item gaussian shape of interaction potential,\qquad$\beta \Phi(r) = A \cdot \exp\left(-(r/\lambda)^2\right)$ and
+                                                                 \item total external potential as superposition     of the two walls.
+                         % $\beta V(\vec{r}) = \int_0^{\infty}\mathrm{d}x\ \beta\Phi(|\vec{r} - x\vec{e}_x|) + \i    nt_0^{\infty}\mathrm{d}x'\ \beta\Phi(|\vec{r} - x'\vec{e}_{x'}|)$
+                                                         \end{itemize}
+                                                         \vspace{1cm}
+                                                 \item $\beta U_{\mathrm{el.}}$:
+                                                         \begin{itemize}
+                                                                 \normalsize
+                                                                 \item Calculation via defined functional $\mathcal{E}$, describing potential energy, $\beta U_{\mathrm{el.}} = - \beta \mathcal{E}[\bar{\Psi}[q,\epsilon_r],q,\e    psilon_r].$
+                                                         \end{itemize}
+                                         \end{itemize}
+                                 }
 				\begin{block}{Introduction}
 
 			Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed commodo molestie porta. Sed ultrices scelerisque sapien ac commodo. Donec ut volutpat elit. Sed laoreet accumsan mattis. Integer sapien tellus, auctor ac blandit eget, sollicitudin vitae lorem. Praesent dictum tempor pulvinar. Suspendisse potenti. Sed tincidunt varius ipsum, et porta nulla suscipit et. Etiam congue bibendum felis, ac dictum augue cursus a. \textbf{Donec} magna eros, iaculis sit amet placerat quis, laoreet id est. In ut orci purus, interdum ornare nibh. Pellentesque pulvinar, nibh ac malesuada accumsan, urna nunc convallis tortor, ac vehicula nulla tellus eget nulla. Nullam lectus tortor, \textit{consequat tempor hendrerit} quis, vestibulum in diam. Maecenas sed diam augue.
 
 			This statement requires citation \cite{Smith:2012qr}.
 
+			\begin{minipage}{1\textwidth}
+                                         \setbeamercolor{item}{fg = black}
+                                         \setbeamertemplate{bibliography item}[text]
+                                         \bibliographystyle{plain}
+                                         \bibliography{tex_supps/bibliography.bib}
+                         \end{minipage}
 				\end{block}
 			\end{column}
 			\begin{column}{\sepwid}\end{column}
 
 		\end{columns}
+		\vspace{1cm}
+		\vfill
+		\color{mpg-green}
+		\hrule height 4pt width \textwidth
+		\color{black}
 	\end{frame}
 \end{document}
