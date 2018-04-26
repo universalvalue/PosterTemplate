@@ -34,9 +34,9 @@
 \newlength{\onecolwid}
 \newlength{\twocolwid}
 \newlength{\threecolwid}
-\setlength{\sepwid}{0.04\textwidth} % Separation width (white space) between columns
-\setlength{\onecolwid}{0.44\textwidth} % Width of one column
-\setlength{\twocolwid}{0.884\textwidth} % Width of two columns
+\setlength{\sepwid}{0.04\textwidth} % Separation width (white space) between columns (maybe 0.02)
+\setlength{\onecolwid}{0.44\textwidth} % Width of one column (maybe 0.47)
+\setlength{\twocolwid}{0.884\textwidth} % Width of two columns (maybe 0.97)
 \setlength{\tabcolsep}{0pt}
 
 \setbeamerfont{bibliography item}{size=\tiny, series=\bfseries}
@@ -52,7 +52,8 @@
 		%--------------------TITLE
 		\vspace{0.5cm}
 		\begin{minipage}{0.1\textwidth}
-			\includegraphics[width=0.8\textwidth,keepaspectratio]{{images/Universität_Stuttgart_Signet}.pdf}	
+			% \includegraphics[width=0.8\textwidth,keepaspectratio]{{images/Universität_Stuttgart_Signet}.pdf}	
+			\includegraphics[width=1.1\textwidth,keepaspectratio]{{images/Universität_Stuttgart_Signet}.pdf}	%two lined title
 		\end{minipage}
 		\hfill
 		\begin{minipage}{0.7\textwidth}
@@ -66,7 +67,8 @@
 			\includegraphics[width=1.1\textwidth,keepaspectratio]{images/minerva.pdf}	
 		\end{minipage}
 		\color{mpg-green}
-		\hrule height 4pt width \paperwidth 
+		\vspace{1.0cm}
+		\hrule height 4pt width \textwidth 
 		\vspace{1.0cm}
 		\color{black}
 		%----------------------END OF TITLE
